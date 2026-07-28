@@ -1,0 +1,12 @@
+{
+  "name": "mfid v1 WebAuthn proof fixture",
+  "note": "Field names show the persisted proof shape. Credential IDs, user handles, transports, attestation, AAGUID, PRF output, and extension output are intentionally outside the mfid proof-chain.",
+  "proof": {
+    "type": "webauthn.get",
+    "verificationMethod": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1",
+    "challengeHash": "b8fc231815ee89cec94dcfeaa705f7b92607dd3eaa80bb44bf01d5ec43242673",
+    "clientDataJSON": "test-vector-client-data-json",
+    "authenticatorData": "test-vector-authenticator-data",
+    "signature": "test-vector-webauthn-signature"
+  }
+}

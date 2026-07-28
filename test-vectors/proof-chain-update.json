@@ -1,0 +1,62 @@
+{
+  "name": "v2 update removes genesis owner and keeps passkey owner",
+  "note": "Signatures and WebAuthn fields are placeholders; unit tests cover real signature verification.",
+  "v2DocumentHash": "18e777413cd5e6bee67304af8429f1b01acc7d606677a1be08c9813c36aad2b8",
+  "v2ChallengeHash": "b8fc231815ee89cec94dcfeaa705f7b92607dd3eaa80bb44bf01d5ec43242673",
+  "v2ChainHeadHash": "c695c72613222c3492cf496cc3bd11301c8f730af14e2c7af56be6f27048bd1e",
+  "entry": {
+    "version": 2,
+    "document": {
+      "$schema": "https://myfield.one/v1/schemas/mfid-document.json",
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+      "verificationMethod": [
+        {
+          "id": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1",
+          "type": "JsonWebKey2020",
+          "controller": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+          "publicKeyJwk": {
+            "kty": "EC",
+            "crv": "P-256",
+            "x": "s1Y5Xkw474FDN_PmEy_XrAJKOeHuqIjUqdKIu7__mZQ",
+            "y": "mZ3A4-XTqubNlX3deJUniKo4lyIaO5B0cokHNgzBOPo"
+          }
+        }
+      ],
+      "authentication": [
+        "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+      ],
+      "capabilityInvocation": [
+        "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+      ],
+      "assertionMethod": [
+        "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+      ],
+      "version": 2
+    },
+    "proofs": [
+      {
+        "type": "jwk.sign",
+        "verificationMethod": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+        "challengeHash": "b8fc231815ee89cec94dcfeaa705f7b92607dd3eaa80bb44bf01d5ec43242673",
+        "alg": "ES256",
+        "signature": "test-vector-previous-owner-signature"
+      },
+      {
+        "type": "webauthn.get",
+        "verificationMethod": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1",
+        "challengeHash": "b8fc231815ee89cec94dcfeaa705f7b92607dd3eaa80bb44bf01d5ec43242673",
+        "clientDataJSON": "test-vector-client-data-json",
+        "authenticatorData": "test-vector-authenticator-data",
+        "signature": "test-vector-webauthn-signature"
+      }
+    ],
+    "prevDocumentHash": "59b06a52c402444bd799b76970a02f0a6b84b3a937bf137a993b9550ab04a7a7",
+    "documentHash": "18e777413cd5e6bee67304af8429f1b01acc7d606677a1be08c9813c36aad2b8",
+    "prevChainHash": "bd980775ba97c4af9adfc49d9bc6e98896aa8aed377747c165b71e6c1b8a304c",
+    "chainHash": "c695c72613222c3492cf496cc3bd11301c8f730af14e2c7af56be6f27048bd1e"
+  }
+}

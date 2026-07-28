@@ -1,0 +1,58 @@
+{
+  "name": "@myfield/mfid",
+  "description": "mfid DID method/profile v1 implementation.",
+  "version": "0.9.0",
+  "license": "Apache-2.0",
+  "author": "OPENTECH AI PTE. LTD.",
+  "homepage": "https://github.com/myfield-one/mfid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myfield-one/mfid"
+  },
+  "bugs": {
+    "url": "https://github.com/myfield-one/mfid/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "schemas/",
+    "docs/",
+    "test-vectors/",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "did",
+    "mfid",
+    "identity"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "example:minimal": "npm run build && node examples/minimal.mjs",
+    "prepack": "npm run build",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "typescript": "5.5.4"
+  }
+}

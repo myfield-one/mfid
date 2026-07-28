@@ -1,0 +1,55 @@
+{
+  "name": "mfid v1 document create with genesis and passkey owner",
+  "mfid": "2ed1bf7d80a74a73b13d2079b57ec5ab",
+  "did": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+  "genesisOwnerMethodId": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+  "ownerMethodIds": [
+    "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+    "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+  ],
+  "document": {
+    "$schema": "https://myfield.one/v1/schemas/mfid-document.json",
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "id": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+    "verificationMethod": [
+      {
+        "id": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+        "type": "JsonWebKey2020",
+        "controller": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "7O4Re725rCeaBY2jMgTsUrzOeoMYaq-CdCJ-wpY-S0M",
+          "y": "t5f9mpY0B3IXW30XkPm-CYvU8vgsiL4BcHEkH9slEh4"
+        }
+      },
+      {
+        "id": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1",
+        "type": "JsonWebKey2020",
+        "controller": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "s1Y5Xkw474FDN_PmEy_XrAJKOeHuqIjUqdKIu7__mZQ",
+          "y": "mZ3A4-XTqubNlX3deJUniKo4lyIaO5B0cokHNgzBOPo"
+        }
+      }
+    ],
+    "authentication": [
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+    ],
+    "capabilityInvocation": [
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+    ],
+    "assertionMethod": [
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+      "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-1"
+    ],
+    "version": 1
+  }
+}

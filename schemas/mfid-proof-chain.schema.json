@@ -1,0 +1,244 @@
+{
+  "$id": "https://myfield.one/v1/schemas/mfid-proof-chain.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "did",
+    "entries",
+    "chainHeadHash"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://myfield.one/v1/schemas/mfid-proof-chain.json"
+    },
+    "did": {
+      "type": "string",
+      "pattern": "^did:mfid:[a-f0-9]{32}$"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "document",
+          "proofs",
+          "documentHash",
+          "chainHash"
+        ],
+        "properties": {
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "document": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "$schema",
+              "@context",
+              "id",
+              "verificationMethod",
+              "authentication",
+              "capabilityInvocation",
+              "assertionMethod",
+              "version"
+            ],
+            "properties": {
+              "$schema": {
+                "const": "https://myfield.one/v1/schemas/mfid-document.json"
+              },
+              "@context": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "const": "https://www.w3.org/ns/did/v1"
+                  },
+                  {
+                    "const": "https://w3id.org/security/suites/jws-2020/v1"
+                  }
+                ],
+                "items": false,
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^did:mfid:[a-f0-9]{32}$"
+              },
+              "verificationMethod": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "type",
+                    "controller",
+                    "publicKeyJwk"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^did:mfid:[a-f0-9]{32}#owner-(?:0|[1-9][0-9]*)$"
+                    },
+                    "type": {
+                      "const": "JsonWebKey2020"
+                    },
+                    "controller": {
+                      "type": "string"
+                    },
+                    "publicKeyJwk": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "kty",
+                        "crv",
+                        "x",
+                        "y"
+                      ],
+                      "properties": {
+                        "kty": {
+                          "const": "EC"
+                        },
+                        "crv": {
+                          "const": "P-256"
+                        },
+                        "x": {
+                          "type": "string"
+                        },
+                        "y": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "authentication": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "capabilityInvocation": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "assertionMethod": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "version": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          },
+          "proofs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "type",
+                    "verificationMethod",
+                    "challengeHash",
+                    "clientDataJSON",
+                    "authenticatorData",
+                    "signature"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "webauthn.get"
+                    },
+                    "verificationMethod": {
+                      "type": "string"
+                    },
+                    "challengeHash": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "clientDataJSON": {
+                      "type": "string"
+                    },
+                    "authenticatorData": {
+                      "type": "string"
+                    },
+                    "signature": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "type",
+                    "verificationMethod",
+                    "challengeHash",
+                    "alg",
+                    "signature"
+                  ],
+                  "properties": {
+                    "type": {
+                      "const": "jwk.sign"
+                    },
+                    "verificationMethod": {
+                      "type": "string"
+                    },
+                    "challengeHash": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "alg": {
+                      "const": "ES256"
+                    },
+                    "signature": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "prevDocumentHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "documentHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "prevChainHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "chainHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "chainHeadHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

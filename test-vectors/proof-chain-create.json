@@ -1,0 +1,33 @@
+{
+  "name": "mfid v1 first-owner-only genesis proof-chain",
+  "note": "Signature is a placeholder; this vector is for structure and hash canonicalization.",
+  "policy": {
+    "createOwnerProofs": "first-owner-only"
+  },
+  "documentHash": "59b06a52c402444bd799b76970a02f0a6b84b3a937bf137a993b9550ab04a7a7",
+  "chainHeadHash": "bd980775ba97c4af9adfc49d9bc6e98896aa8aed377747c165b71e6c1b8a304c",
+  "proofChain": {
+    "$schema": "https://myfield.one/v1/schemas/mfid-proof-chain.json",
+    "did": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+    "entries": [
+      {
+        "version": 1,
+        "document": {
+          "$ref": "document-v1-create.json#/document"
+        },
+        "proofs": [
+          {
+            "type": "jwk.sign",
+            "verificationMethod": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab#owner-0",
+            "challengeHash": "b50c6adc75f1c0e13e648e7e35292fd9f39915174c424ef9a082c4bc4d8fca79",
+            "alg": "ES256",
+            "signature": "test-vector-signature-placeholder"
+          }
+        ],
+        "documentHash": "59b06a52c402444bd799b76970a02f0a6b84b3a937bf137a993b9550ab04a7a7",
+        "chainHash": "bd980775ba97c4af9adfc49d9bc6e98896aa8aed377747c165b71e6c1b8a304c"
+      }
+    ],
+    "chainHeadHash": "bd980775ba97c4af9adfc49d9bc6e98896aa8aed377747c165b71e6c1b8a304c"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "mfid v1 document proof payload",
+  "documentHash": "59b06a52c402444bd799b76970a02f0a6b84b3a937bf137a993b9550ab04a7a7",
+  "proofPayload": {
+    "type": "mfid.document-proof.v1",
+    "did": "did:mfid:2ed1bf7d80a74a73b13d2079b57ec5ab",
+    "version": 1,
+    "documentHash": "59b06a52c402444bd799b76970a02f0a6b84b3a937bf137a993b9550ab04a7a7"
+  },
+  "challengeHash": "b50c6adc75f1c0e13e648e7e35292fd9f39915174c424ef9a082c4bc4d8fca79"
+}
