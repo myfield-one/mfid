@@ -41,10 +41,9 @@ across applications or third-party services.
 
 ## Usage
 
-This package is not yet published to a registry. For API usage, read the
-runnable example below — it covers document creation, genesis proof-chain
-creation, and profile verification end to end. See [docs/api.md](docs/api.md)
-for the full helper list.
+For API usage, read the runnable example below — it covers document creation,
+genesis proof-chain creation, and profile verification end to end. See
+[docs/api.md](docs/api.md) for the full helper list.
 
 ## Minimal Example
 

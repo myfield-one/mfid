@@ -7,7 +7,7 @@
   "homepage": "https://github.com/myfield-one/mfid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/myfield-one/mfid"
+    "url": "git+https://github.com/myfield-one/mfid.git"
   },
   "bugs": {
     "url": "https://github.com/myfield-one/mfid/issues"
